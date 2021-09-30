@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
@@ -6,6 +6,7 @@ import './App.css';
 import { ErrorBoundery } from './ErrorBoundery';
 import { increaseCount, requestRobots, setSearchField } from '../actions';
 import { connect } from 'react-redux';
+import { Header } from '../components/Header';
 
 
 const mapStateToProps = state => {
@@ -42,8 +43,8 @@ const App = (props) => {
     <h1>Loading</h1> :
     (
       <div className='tc'>
-        <h1 className='f1'>RoboFriends</h1>
-        <button onClick={onIncreaseCount}>מספר נוכחי {count}</button>
+        <Header />
+          <button onClick={onIncreaseCount}>מספר נוכחי {count}</button>
         <SearchBox searchChange={onSearchChange} />
         <Scroll>
           <ErrorBoundery>
